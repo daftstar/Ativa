@@ -1,4 +1,5 @@
 Ativa::Application.routes.draw do
+  devise_for :users
   resources :posts
   root 'projects#index'
   resources :projects
