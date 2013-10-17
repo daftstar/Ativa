@@ -1,4 +1,5 @@
-%tr
+/ Creates data attribute for each row that is equal to that project's id in the Rails database
+%tr{"data-project-id" => "#{project.id}"}
   %td
     = link_to project.name, project_url(project.id)
     = "(#{project.phase.name})"
