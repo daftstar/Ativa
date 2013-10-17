@@ -1,0 +1,12 @@
+(function () {
+  var projectHtml = "<%= j render('show', :project => @project) %>";
+  $('.projects').prepend(projectHtml);
+})();
+
+
+
+// We're setting up an anonymous function that will run automatically. By wrapping it like this projectHtml won't get attached to the global window object and "pollute" our variable namespace (you never want two things with the same name stepping on each other's toes, however unlikely it seems).
+
+// We're setting a variable projectHtml that will spit out some ruby code. j is short for escape_javascript, which escapes characters that would break your code. We're rendering a partial (that doesn't yet exist) here that will print out a new project. We'll get back to this step in a second.
+
+// Lastly, we are using the jQuery prepend function to add our new project to the top of our projects table (with a class 'projects' that hasn't been added yet). If we wanted to instead add it to the bottom, we could have used the append function instead.

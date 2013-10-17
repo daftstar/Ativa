@@ -1,3 +1,4 @@
+// remote: true is what sets off the AJAX listener
 = form_for(@project, remote: true) do |f|
   - if @project.errors.any?
     #error_explanation

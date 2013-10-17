@@ -13,13 +13,7 @@
           %th Last updated
           %th
           %th
-      %tbody
+      %tbody.projects
         - @projects.each do |project|
-          %tr
-            %td
-              = link_to project.name, project_url(project.id)
-              = "(#{project.phase.name})"
-            %td.text-center= "✓" unless current_user.subscriptions.where(project_id: project.id).blank?
-            %td= project.updated_at.strftime("%m/%d/%y at %I:%M%P")
-            %td= link_to 'Edit', edit_project_path(project.id)
-            %td= link_to 'Destroy', project_path(project.id), method: :delete, data: { confirm: 'Are you sure?' }
+          = render 'show', project: project
+          / we can pass local variables to our partial as well. We normally do this by adding another key-value argument to our render, with the key being equal to the variable we want to pass, and the value equal to the variable we are passing. Since we're actually going to pass our block variable project and our partial is looking for a variable called project, they end up being the same here
