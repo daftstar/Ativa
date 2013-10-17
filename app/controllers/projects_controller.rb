@@ -49,6 +49,9 @@ class ProjectsController < ApplicationController
       if @project.save
         format.html { redirect_to projects_url, notice: 'Project was successfully created.' }
         format.json { render action: 'show', status: :created, location: @project }
+# if a normal HTTP request is sent, the format.html block would be triggered, if instead we were requesting JSON,
+# the format.json line would instead be triggered.
+# Here, we want our controller to respond to an Ajax request, so we'll need to add a line for format.js:        
         format.js   { render layout: false }
       else
         format.html { render action: 'new' }
@@ -79,6 +82,10 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to projects_url }
       format.json { head :no_content }
+# if a normal HTTP request is sent, the format.html block would be triggered, if instead we were requesting JSON,
+# the format.json line would instead be triggered.
+# Here, we want our controller to respond to an Ajax request, so we'll need to add a line for format.js:        
+      format.js   { render layout: false }
     end
   end
 
