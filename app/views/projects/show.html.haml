@@ -1,9 +1,10 @@
 %h1
   = @project.name
   - if @project.users.include?(current_user)
-    %small= link_to "Unsubscribe", project_subscription_path(project_id: @project.id, id: current_user.subscriptions.where(project_id: @project.id).first), method: :delete
+    %small= link_to "Unsubscribe", subscription_path(project_id: @project.id, id: current_user.subscriptions.where(project_id: @project.id).first), method: :delete
   - else
-    %small= link_to "Subscribe", project_subscriptions_path(project_id: @project.id), method: :post
+    %small= link_to "Subscribe", subscriptions_path(project_id: @project.id), method: :post
+
 
 .row
   .large-3.columns
