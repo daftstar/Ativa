@@ -7,25 +7,9 @@ class Post < ActiveRecord::Base
 
   mount_uploader :attachment, ImageUploader
 
- #hardcoded
-  # def snippet()
-  #   message.truncate(20)
-  # end
-
-#more dynamic, 10 is overwritten by any argument passed in
-  # def snippet(len=10)
-  #   message.truncate(len)
-  # end
-
-  def snippet(options={})
-    if options.has_key? :length
-      message.truncate(options[:length])
-    else
-      message.truncate(20)
-    end
+  def snippet(length)
+    message.truncate length
   end
-
-
 
   private
 

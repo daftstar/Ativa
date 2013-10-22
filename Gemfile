@@ -18,6 +18,7 @@ gem "fog", "~> 1.3.1"
 
 group :development do 
 	gem 'figaro'
+  gem 'better_errors'
 end
 
 # Use sqlite3 as the database for Active Record
